@@ -4,6 +4,7 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Button } from "@/components/ui/Button";
 import { FeatureIcon } from "@/components/ui/FeatureIcon";
 import { Polaroid } from "@/components/ui/Polaroid";
+import { WashiTape } from "@/components/ui/WashiTape";
 import { featurePillars } from "@/data/features";
 
 export const ChicagoStyleSection: React.FC = () => {
@@ -11,9 +12,9 @@ export const ChicagoStyleSection: React.FC = () => {
     <section
       id="about"
       aria-labelledby="chicago-style-heading"
-      className="w-full pt-7 sm:pt-9 pb-1 overflow-hidden"
+      className="w-full pt-6 sm:pt-7 pb-3 sm:pb-4 overflow-hidden"
     >
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1050px] mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-center">
           {/* Column 1: Narrative & CTAs (approx 4.5 cols on desktop) */}
           <div className="lg:col-span-5 flex flex-col items-start">
@@ -44,7 +45,7 @@ export const ChicagoStyleSection: React.FC = () => {
 
               <Link
                 href="#locations"
-                className="font-heading font-bold text-xs sm:text-sm uppercase tracking-wider text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-brand)]"
+                className="font-heading font-bold text-xs sm:text-sm uppercase tracking-wider text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-brand)] min-h-[44px] inline-flex items-center"
               >
                 SEE LOCATIONS
               </Link>
@@ -66,26 +67,31 @@ export const ChicagoStyleSection: React.FC = () => {
 
           {/* Column 3: Overlapping Polaroids with Washi Tape (approx 4 cols on desktop) */}
           <div className="lg:col-span-4 flex justify-center items-center py-2 lg:py-0">
-            <div className="relative w-[280px] sm:w-[320px] h-[200px] sm:h-[220px] flex items-center justify-center">
+            <div className="relative w-[330px] sm:w-[370px] h-[255px] sm:h-[275px] flex items-center justify-center">
+              {/* Floating background washi tape piece at top right */}
+              <WashiTape className="-top-3 right-0 z-0" rotate="38deg" width="70px" height="20px" />
+              {/* Floating background washi tape piece at bottom right */}
+              <WashiTape className="-bottom-3 right-4 z-30" rotate="-24deg" width="70px" height="20px" />
+
               {/* Back Polaroid: Smiling Man (Team 1) */}
-              <div className="absolute left-1 sm:left-2 top-0 z-10">
+              <div className="absolute left-0 sm:left-2 top-0 z-10">
                 <Polaroid
                   imageSrc="/images/team-1.jpg"
                   alt="Smiling team member in Crust Pizza Co. uniform"
-                  width={135}
-                  height={145}
-                  rotate="-5deg"
+                  width={165}
+                  height={190}
+                  rotate="-4deg"
                   tapePosition="top-left"
                 />
               </div>
 
               {/* Front Polaroid: Smiling Woman (Team 2) */}
-              <div className="absolute right-1 sm:right-2 top-2 z-20">
+              <div className="absolute right-2 sm:right-4 top-4 z-20">
                 <Polaroid
                   imageSrc="/images/team-2.jpg"
                   alt="Smiling manager at Crust Pizza Co. kitchen"
-                  width={140}
-                  height={150}
+                  width={170}
+                  height={195}
                   rotate="6deg"
                   tapePosition="both"
                 />
@@ -93,6 +99,9 @@ export const ChicagoStyleSection: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Subtle section divider line as in reference */}
+        <div className="mt-7 sm:mt-8 border-b border-[var(--color-cream-border)]" />
       </div>
     </section>
   );

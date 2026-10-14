@@ -5,7 +5,6 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { OurMenuSection } from "@/components/sections/OurMenuSection";
 import { ChicagoStyleSection } from "@/components/sections/ChicagoStyleSection";
 import { WaysToEnjoySection } from "@/components/sections/WaysToEnjoySection";
-import { CommunitySection } from "@/components/sections/CommunitySection";
 import { FranchiseSection } from "@/components/sections/FranchiseSection";
 
 export default function Home() {
@@ -25,13 +24,10 @@ export default function Home() {
         {/* 3. Home of Chicago-Style Thin Crust Pizza */}
         <ChicagoStyleSection />
 
-        {/* 4. Ways to Enjoy */}
+        {/* 4. Ways to Enjoy & Community (2-column layout as in reference) */}
         <WaysToEnjoySection />
 
-        {/* 5. Community */}
-        <CommunitySection />
-
-        {/* 6. Franchise */}
+        {/* 5. Franchise */}
         <FranchiseSection />
       </main>
 
