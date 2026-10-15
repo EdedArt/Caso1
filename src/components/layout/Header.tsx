@@ -10,12 +10,12 @@ export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[var(--color-cream)]/95 backdrop-blur-sm border-b border-[var(--color-cream-border)]">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
+    <header className="sticky top-0 z-40 w-full bg-[var(--color-cream)]/95 backdrop-blur-xs">
+      <div className="max-w-[1050px] mx-auto px-4 sm:px-6 h-20 sm:h-[84px] flex items-center justify-between">
         {/* Left Navigation (Desktop) */}
         <nav
           aria-label="Primary Left Navigation"
-          className="hidden md:flex items-center gap-5 lg:gap-7 flex-1"
+          className="hidden md:flex items-center gap-4 lg:gap-6 flex-1"
         >
           {leftNavItems.map((item) => (
             <Link
@@ -23,8 +23,8 @@ export const Header: React.FC = () => {
               href={item.href}
               className={
                 item.active
-                  ? "bg-[var(--color-brand)] text-white font-heading font-bold text-xs lg:text-sm uppercase px-3.5 py-1.5 rounded-md shadow-xs"
-                  : "font-heading font-bold text-xs lg:text-sm uppercase tracking-wider text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors"
+                  ? "bg-[var(--color-brand)] text-neutral-900 font-heading font-bold text-xs lg:text-[13px] uppercase px-4 py-1.5 rounded-full shadow-xs"
+                  : "font-heading font-bold text-xs lg:text-[13px] uppercase tracking-wider text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors py-2"
               }
             >
               {item.label}
@@ -33,43 +33,45 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* Center Brand Logo Stamp */}
-        <div className="flex justify-center items-center shrink-0 mx-4">
+        <div className="flex justify-center items-center shrink-0 mx-3 sm:mx-4">
           <Link href="/" aria-label="Crust Pizza Co. Homepage" className="focus-visible:outline-2 focus-visible:outline-[var(--color-brand)] rounded-full">
-            <BrandLogo size={60} priority />
+            <BrandLogo size={68} priority />
           </Link>
         </div>
 
         {/* Right Navigation (Desktop) */}
         <nav
           aria-label="Primary Right Navigation"
-          className="hidden md:flex items-center justify-end gap-5 lg:gap-6 flex-1"
+          className="hidden md:flex items-center justify-end gap-3 lg:gap-4 flex-1"
         >
           {rightNavItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="font-heading font-bold text-xs lg:text-sm uppercase tracking-wider text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors"
+              className="font-heading font-bold text-xs lg:text-sm uppercase tracking-wider text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors py-2"
             >
               {item.label}
             </Link>
           ))}
 
-          {/* User Profile Avatar Pill/Circle */}
-          <button
-            type="button"
-            aria-label="User Account Profile"
-            className="w-8 h-8 rounded-full bg-[var(--color-brand)] hover:bg-[var(--color-brand-hover)] text-white flex items-center justify-center transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] cursor-pointer"
-          >
-            <User className="w-4 h-4 fill-white stroke-none" aria-hidden="true" />
-          </button>
+          {/* User Profile Avatar Pill/Circle with min 44x44px touch target */}
+          <div className="flex items-center justify-center min-w-[44px] min-h-[44px]">
+            <button
+              type="button"
+              aria-label="User Account Profile"
+              className="w-8 h-8 rounded-full bg-[var(--color-brand)] hover:bg-[var(--color-brand-hover)] text-white flex items-center justify-center transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] cursor-pointer"
+            >
+              <User className="w-4 h-4 fill-white stroke-none" aria-hidden="true" />
+            </button>
+          </div>
 
-          {/* Twitter / X Icon */}
+          {/* Twitter / X Icon with min 44x44px touch target */}
           <a
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow Crust Pizza Co. on Twitter"
-            className="text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]"
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]"
           >
             <svg
               className="w-4 h-4 fill-current"
@@ -80,10 +82,10 @@ export const Header: React.FC = () => {
             </svg>
           </a>
 
-          {/* Call Now */}
+          {/* Call Now with min 44px touch height */}
           <a
             href="tel:#"
-            className="font-heading font-bold text-xs lg:text-sm uppercase tracking-wider text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]"
+            className="min-h-[44px] flex items-center font-heading font-bold text-xs lg:text-sm uppercase tracking-wider text-[var(--color-ink)] hover:text-[var(--color-brand)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] px-1"
           >
             CALL NOW
           </a>

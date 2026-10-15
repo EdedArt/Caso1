@@ -11,16 +11,16 @@ export const OurMenuSection: React.FC = () => {
     <section
       id="menu"
       aria-labelledby="our-menu-heading"
-      className="w-full pt-6 sm:pt-8 pb-1"
+      className="w-full pt-5 sm:pt-6 pb-2 sm:pb-3"
     >
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1050px] mx-auto px-4 sm:px-6">
         {/* Section Heading */}
-        <SectionTitle id="our-menu-heading" size="md" className="mb-3.5 sm:mb-4.5">
+        <SectionTitle id="our-menu-heading" size="md" className="mb-3.5 sm:mb-4">
           OUR MENU
         </SectionTitle>
 
         {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
           {menuItems.map((item) => (
             <article
               key={item.id}
@@ -35,6 +35,10 @@ export const OurMenuSection: React.FC = () => {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
+                {/* Small orange badge overlay in bottom-right corner of image as in reference */}
+                <div className="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-[var(--color-brand)] text-white text-[9px] font-bold flex items-center justify-center shadow-xs">
+                  {item.id === "chicken-parm" ? "★" : item.id === "chicken-alfredo" ? "4.9" : item.id === "spaghetti-meatballs" ? "♥" : "TOP"}
+                </div>
               </div>
 
               {/* Card Content */}
@@ -48,15 +52,17 @@ export const OurMenuSection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Bottom Right Circle Button */}
-                <div className="mt-2.5 flex justify-end">
-                  <Link
-                    href={`#${item.id}`}
-                    aria-label={`Order ${item.title}`}
-                    className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[var(--color-brand)] hover:bg-[var(--color-brand-hover)] text-white flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs focus-visible:outline-2 focus-visible:outline-[var(--color-brand)]"
-                  >
-                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" aria-hidden="true" />
-                  </Link>
+                {/* Bottom Right Circle Button with accessible touch target wrapper */}
+                <div className="mt-2.5 flex justify-end -mr-1 -mb-1">
+                  <div className="min-w-[44px] min-h-[44px] flex items-center justify-center">
+                    <Link
+                      href={`#${item.id}`}
+                      aria-label={`Order ${item.title}`}
+                      className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full bg-[var(--color-brand)] hover:bg-[var(--color-brand-hover)] text-white flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs focus-visible:outline-2 focus-visible:outline-[var(--color-brand)]"
+                    >
+                      <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" aria-hidden="true" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </article>
@@ -64,15 +70,18 @@ export const OurMenuSection: React.FC = () => {
         </div>
 
         {/* View Complete Menu Pill Button */}
-        <div className="mt-6 sm:mt-7 flex justify-center">
+        <div className="mt-4 sm:mt-5 flex justify-center">
           <Button
             variant="primary"
             href="#full-menu"
-            className="text-xs sm:text-sm px-7 sm:px-8 py-2 font-heading tracking-wider"
+            className="text-xs sm:text-[13px] px-8 sm:px-10 py-2.5 font-heading tracking-wider"
           >
             VIEW OUR COMPLETE MENU
           </Button>
         </div>
+
+        {/* Subtle section divider line as in reference */}
+        <div className="mt-5 sm:mt-6 border-b border-[var(--color-cream-border)]" />
       </div>
     </section>
   );

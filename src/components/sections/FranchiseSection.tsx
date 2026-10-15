@@ -8,10 +8,10 @@ export const FranchiseSection: React.FC = () => {
     <section
       id="franchise"
       aria-labelledby="franchise-heading"
-      className="w-full pt-7 sm:pt-9 pb-2"
+      className="w-full pt-6 sm:pt-7 pb-4 sm:pb-5"
     >
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-center">
+      <div className="max-w-[1050px] mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5 items-center">
           {/* Left Column: Franchise Opportunity Pitch */}
           <div className="lg:col-span-4 flex flex-col items-start">
             <SectionTitle
@@ -46,6 +46,7 @@ export const FranchiseSection: React.FC = () => {
                 src="/images/storefront.jpg"
                 alt="Exterior view of Crust Pizza Co. modern restaurant building at dusk with warm lighting"
                 fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 420px"
                 className="object-cover"
               />

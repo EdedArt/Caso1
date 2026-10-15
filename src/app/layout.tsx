@@ -51,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${oswald.variable} ${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${oswald.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col font-sans antialiased text-[var(--color-ink)] selection:bg-[var(--color-brand)] selection:text-white">
         <a href="#main-content" className="skip-to-content">
           Skip to content
